@@ -1,0 +1,20 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js app with Express, EJS, MongoDB, and Mongoose",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Sayantan",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.21.2",
+    "i": "^0.3.7",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.9.6",
+    "npm": "^11.1.0"
+  }
+}

@@ -1,0 +1,111 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png);
+    background-size: cover;
+}
+
+.container {
+    background: url(https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_960_720.png);
+    backdrop-filter: blur(5px);
+    width: fit-content;
+    border: 5px solid black;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px black ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap:10px;
+}
+input,option,select{
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    padding:5px 10px;
+    background-color: rgb(247, 212, 169);
+}
+button{
+    border-radius: 5px;
+    border: none;
+    padding:5px 10px;
+    width: fit-content;
+    background-color: rgb(247, 212, 169);
+    box-shadow: 5px 5px 5px black;
+    transition: all 0.1s ease;
+    &:hover{
+        transform: scale(1.1);
+        background-color: aqua;
+    }
+    &:active{
+        transform: scaleY(0.9);
+        box-shadow: 3px 3px 3px black;
+    }
+}
+
+.listContainer{
+    max-height:200px;
+    padding:10px;
+    margin: 10px 10px;
+    box-shadow: 0px 5px 15px black inset;
+    overflow-y: auto;
+    border-radius: 10px;    
+    background-color: rgb(247, 212, 169);
+
+}
+.listContainer::-webkit-scrollbar {
+    width: 8px;
+}
+.listContainer::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+    margin: 5px;
+}
+.listContainer::-webkit-scrollbar-thumb {
+    background-color: #0000002f;
+    border-radius: 10px;
+}
+.listContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #000000;
+}
+
+.newListParent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+}
+.newList{
+    
+    overflow-wrap: break-word;
+    word-wrap: break-word;  
+    
+    border-bottom: 4px solid black;
+    border-top: 1px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 10px;
+
+    width: 200px;
+    height: auto;
+    margin: 30px 5px 5px 10px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: start;
+    gap: 10px;
+}
+

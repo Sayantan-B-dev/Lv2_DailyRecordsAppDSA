@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Done tasks</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Records of DSA Practice</h1>
+        <form action="/" id="form" method="post">
+            <select name="selection" id="selection" required>
+                <option value="interviewBit">interviewBit</option>
+                <option value="GeeksForGeeks">GeeksForGeeks</option>
+                <option value="LeetCode">LeetCode</option>
+            </select>
+            <input class="new-input" type="date" id="date_created" name="date_created" required />
+            <input class="new-input" type="number" id="numberOfQuestions" name="numberOfQuestions"
+                placeholder="Number of questions" required />
+            <input class="new-input" type="text" id="Note" name="Note" placeholder="Note" required />
+            <button type="submit">Add new record</button>
+        </form>
+        <div class="listContainer">
+            <div class="newListParent">
+            <% for(let e of records){ %>
+                <div id="lists" class="newList">
+                    <div>
+                        <strong><span>Date Created:</span></strong>
+                        <span>
+                            <% const date=new Date(e.date); %>
+                            <%= date.getDate(); %>/<%= date.getMonth() + 1 %>/<%= date.getFullYear() %> 
+                            <%= date.getHours() %>:<%= date.getMinutes() %>
+                        </span>
+                    </div>
+                    <div>
+                        <strong><span>Platform:</span></strong>
+                        <span class="details">
+                            <%= e.platform %>
+                        </span>
+                    </div>
+                    <div>
+                        <strong><span>Number of Questions:</span></strong>
+                        <span class="details">
+                            <%= e.numOfQuestions %>
+                        </span>
+                    </div>
+                    <div>
+                        <strong><span>Note:</span></strong>
+                        <span class="details">
+                            <%= e.note %>
+                        </span>
+                    </div>
+                </div>
+                <!-- <svg onclick="window.location.href='/edit/<%= e._id %>'"
+                    xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black">
+                    <path d="M160-400v-80h280v80H160Zm0-160v-80h440v80H160Zm0-160v-80h440v80H160Zm360 560v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T863-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+                </svg> -->
+                <svg onclick="confirmDelete('<%= e._id %>')" 
+                    xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black">
+                    <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                </svg>
+            <% } %>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    function confirmDelete(id) {
+        if (confirm("Are you sure you want to delete this record?")) {
+            fetch("/delete/" + id, { method: "DELETE" })
+                .then(() => location.reload())
+                .catch((err) => console.error("Error:", err));
+        }
+    }
+</script>
+</body>
+
+</html>
